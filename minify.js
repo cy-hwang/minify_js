@@ -32,7 +32,7 @@ function minifyFiles(filePaths) {
   var b1 = new cliProgress.Bar({
     format:
       'Minify Progress |' +
-      _colors.cyan('{bar}') +
+      _colors.white('{bar}') +
       '| {percentage}% || {value}/{total}',
     barCompleteChar: '\u2588',
     barIncompleteChar: '\u2591',
@@ -58,11 +58,17 @@ function minifyFiles(filePaths) {
 generateDistFolder(sourcePath, targetPath)
   .then(() => {
     console.log('===============  Folder Copy Success  ===============');
+    console.log('');
     const filePath = getAllFiles(targetPath);
     console.log('=============== Listing File Path Done ===============');
+    console.log('');
     minifyFiles(filePath);
     console.log('===============      Minify Done      ===============');
   })
-  .catch(() => {
+  .catch((error) => {
+    console.log();
+    console.log();
+    console.log();
+    console.log(error);
     console.log('Dist Folder Generation Fails');
   });

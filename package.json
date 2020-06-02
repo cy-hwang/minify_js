@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "minify & Uglify Directory Files",
   "main": "minify.js",
+  "bin": {
+    "app": "minify.js"
+  },
   "scripts": {
+    "serve": "node sample",
     "build": "npm run clean && node minify",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "build:package": "pkg -t node12-win-x64 ."
+  },
+  "pkg": {
+    "script": [
+      "/bin/**/*"
+    ]
   },
   "repository": {
     "type": "git",
