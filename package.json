@@ -1,0 +1,25 @@
+{
+  "name": "minify_js",
+  "version": "1.0.0",
+  "description": "minify & Uglify Directory Files",
+  "main": "minify.js",
+  "scripts": {
+    "build": "npm run clean && node minify",
+    "clean": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cy-hwang/minify_js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cy-hwang/minify_js/issues"
+  },
+  "homepage": "https://github.com/cy-hwang/minify_js#readme",
+  "dependencies": {
+    "cli-progress": "^3.8.2",
+    "recursive-copy": "^2.0.10",
+    "terser": "^4.7.0"
+  }
+}
