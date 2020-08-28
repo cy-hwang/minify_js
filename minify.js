@@ -30,10 +30,7 @@ function getAllFiles(target, arrayOfFiles) {
 
 function minifyFiles(filePaths) {
   var b1 = new cliProgress.Bar({
-    format:
-      'Minify Progress |' +
-      _colors.white('{bar}') +
-      '| {percentage}% || {value}/{total}',
+    format: 'Minify Progress |' + _colors.white('{bar}') + '| {percentage}% || {value}/{total}',
     barCompleteChar: '\u2588',
     barIncompleteChar: '\u2591',
     hideCursor: true,
@@ -43,10 +40,13 @@ function minifyFiles(filePaths) {
   var value = 0;
 
   filePaths.forEach((filePath) => {
-    fs.writeFileSync(
-      filePath,
-      Terser.minify(fs.readFileSync(filePath, 'utf8')).code
-    );
+    // beautify 적용위한 옵션
+    const option = {
+      output: {
+        beautify: true,
+      },
+    };
+    fs.writeFileSync(filePath, Terser.minify(fs.readFileSync(filePath, 'utf8'), option).code);
     b1.update((value += 1));
     if (value >= b1.getTotal()) {
       // stop timer
