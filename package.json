@@ -30,6 +30,6 @@
   "dependencies": {
     "cli-progress": "^3.8.2",
     "recursive-copy": "^2.0.10",
-    "terser": "^4.7.0"
+    "terser": "^4.8.1"
   }
 }
